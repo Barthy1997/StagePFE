@@ -26,6 +26,9 @@ app.use('/Compte', Compte);
 const Zone = require('./Controlleur/Zone');
 app.use('/Zone', Zone);
 
+const Camionnette = require('./Controlleur/Camionnette');
+app.use('/Camionnette', Camionnette);
+
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {

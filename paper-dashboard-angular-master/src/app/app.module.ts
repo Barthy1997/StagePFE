@@ -22,6 +22,10 @@ import { GestionCompteComponent } from './ModuleGestion/gestion-compte/gestion-c
 import { RecherchePipe } from './Pipe/recherche.pipe';
 import { ListePipe } from './Pipe/liste.pipe';
 import { GestionCommercialComponent } from './ModuleGestion/gestion-commercial/gestion-commercial.component';
+import { CamionnetteComponent } from './ModuleGestion/camionnette/camionnette.component';
+import { TourneComponent } from './ModuleGestion/tourne/tourne.component';
+import { ObjectifComponent } from './ModuleGestion/objectif/objectif.component';
+import { RecouvrementComponent } from './ModuleGestion/recouvrement/recouvrement.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { GestionCommercialComponent } from './ModuleGestion/gestion-commercial/g
     GestionCompteComponent,
     RecherchePipe,
     ListePipe,
-    GestionCommercialComponent
+    GestionCommercialComponent,
+    CamionnetteComponent,
+    TourneComponent,
+    ObjectifComponent,
+    RecouvrementComponent
   ],
   imports: [
     BrowserAnimationsModule,

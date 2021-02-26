@@ -26,7 +26,7 @@ export class GestionCommercialComponent implements OnInit {
     this.Compte.getAllUserCommercial().subscribe(data=>{
       this.listeUser=data;
       this.listeUser=this.listeUser.users;
-      this.listeZone=this.listeUser.users.listeZone
+      //this.listeZone=this.listeUser.users.listeZone
     })
   }
 
