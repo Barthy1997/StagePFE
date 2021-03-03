@@ -26,6 +26,7 @@ import { CamionnetteComponent } from './ModuleGestion/camionnette/camionnette.co
 import { TourneComponent } from './ModuleGestion/tourne/tourne.component';
 import { ObjectifComponent } from './ModuleGestion/objectif/objectif.component';
 import { RecouvrementComponent } from './ModuleGestion/recouvrement/recouvrement.component';
+import { GestionArticleComponent } from './ModuleGestion/gestion-article/gestion-article.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { RecouvrementComponent } from './ModuleGestion/recouvrement/recouvrement
     CamionnetteComponent,
     TourneComponent,
     ObjectifComponent,
-    RecouvrementComponent
+    RecouvrementComponent,
+    GestionArticleComponent
   ],
   imports: [
     BrowserAnimationsModule,

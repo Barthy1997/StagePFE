@@ -13,6 +13,7 @@ import { RegisterClientComponent } from 'app/Authentification/register-client/re
 import { GestionCompteComponent } from 'app/ModuleGestion/gestion-compte/gestion-compte.component';
 import { RegisterCommercialComponent } from 'app/Authentification/register-commercial/register-commercial.component';
 import { GestionCommercialComponent } from 'app/ModuleGestion/gestion-commercial/gestion-commercial.component';
+import { GestionArticleComponent } from 'app/ModuleGestion/gestion-article/gestion-article.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',        component: DashboardComponent },
@@ -20,6 +21,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table',            component: TableComponent },
     { path: 'typography',       component: TypographyComponent },
     { path: 'icons',            component: IconsComponent },
+    { path: 'Catalogue',        component: GestionArticleComponent },
     { path: 'Gestion',          component: GestionComponent },
     { path: 'maps',             component: MapsComponent },
     { path: 'inscripClient',    component: RegisterClientComponent },

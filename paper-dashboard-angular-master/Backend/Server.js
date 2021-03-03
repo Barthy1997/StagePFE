@@ -20,14 +20,17 @@ sql.connect(config).then(() => {
 const AuthRoute = require('./Controlleur/authentifiaction');
 app.use('/authentification', AuthRoute);
 
+const Article = require('./Controlleur/GestionArticle');
+app.use('/Article',Article);
+
 const Compte = require('./Controlleur/GestionCompte');
 app.use('/Compte', Compte);
 
-const Zone = require('./Controlleur/Zone');
-app.use('/Zone', Zone);
-
 const Camionnette = require('./Controlleur/Camionnette');
 app.use('/Camionnette', Camionnette);
+
+const Zone = require('./Controlleur/Zone');
+app.use('/Zone', Zone);
 
 
 const port = process.env.PORT || 3000;

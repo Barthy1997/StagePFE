@@ -4,11 +4,14 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ZoneService {
+export class GestionArticleService {
 
-  private api='http://localhost:3000/Compte';
-  token = localStorage.getItem('token');
+
+  private api='http://localhost:3000/ARTICLE';
   constructor(private http:HttpClient) { }
 
-  
+  getAllArticle()
+  {
+    return this.http.get(this.api+'/AllArticle');
+  }
 }
