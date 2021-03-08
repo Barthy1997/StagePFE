@@ -9,20 +9,33 @@ Article.route('/AllArticle').get(async(req,res)=>{
         const reponse =await sql.connect(config);
         const article =await sql.query('Select * From F_ARTICLE');
         const articles = [];
-        for (var i = 0; i <100; i++) {
+        for (var i = 0; i <article.rowsAffected; i++) {
             articles[i] = article.recordset[i];
-            console.log(articles[i])
-        }
+          }
         res.json({
             articles
         })
-
-        
-    } catch (error) {
+  } catch (error) {
         
     }
 
 
+})
+
+Article.route('/AllCatalogue').get(async(req,res)=>{
+    try {
+        const reponse =await sql.connect(config);
+        const catalogue =await sql.query('Select * From F_CATALOGUE');
+        const catalogues = [];
+        for (var i = 0; i <catalogue.rowsAffected; i++) {
+            catalogues[i] = catalogue.recordset[i];   
+            console.log( catalogues[i]) 
+        }
+        res.json({
+            catalogues
+        })   
+    } catch (error) {
+        }
 })
 
 

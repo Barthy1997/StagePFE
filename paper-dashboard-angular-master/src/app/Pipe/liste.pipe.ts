@@ -6,12 +6,12 @@ import { Article } from 'app/Model/Article';
 })
 export class ListePipe implements PipeTransform {
 
-  transform(Article:Article[],recherche :string):Article[]  {
-    if(!Article||!recherche)
+  transform(Article:Article[],filter:number):Article[]  {
+    if(!Article||!filter)
     {
       return Article; 
     }
-    return Client.filter(Client=>Client.Login.toLowerCase().indexOf(recherche.toLowerCase())!==-1 || Client.Nom.toLowerCase().indexOf(recherche.toLowerCase())!==-1);
+    return Article.filter(Client=>Client.CL_No1==filter||Client.CL_No2==filter ||Client.CL_No3==filter);
   }
 
 }

@@ -1,48 +1,49 @@
 <div class="row">
-  <div class="col-md-12">
-    <div class="card ">
+  <div class="col-md-3">
+    <div class="card">
       <div class="card-header">
-        <h5 class="card-title">Users Behavior</h5>
-        <p class="card-category">24 Hours performance</p>
+
+        <div *ngFor='let item of listeCatalogues'>
+            <button type="button" class="btn btn-lg btn-block btn-success text-uppercase" [value]='Envoyer'(click)='envoyer(item.CL_Intitule)'>{{item.CL_Intitule}}</button>
+        </div>
+
       </div>
-      <div class="card-body ">
-        <canvas id=chartHours width="400" height="100"></canvas>
+       <div class="card-body" class='col-md-3'>
+        <ul class="list-unstyled team-members">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="card card-user">
+      <div class="card-header">
+        <h5 class="card-title">Article</h5>
       </div>
       <div class="row">
-  <div class="col-md-4" *ngFor='let item of listeArticle'>
+  <div class="col-md-4" *ngFor='let item of listeArticle|liste:Envoyer|paginate:{itemsPerPage:50,currentPage:p};'>
     <div class="card ">
       <div class="card-header ">
         <h5 class="card-title">{{item.AR_Design}}</h5>
-        <p class="card-category">Last Campaign Performance</p>
+        <p class="card-category">{{item.CL_No1}}</p>
       </div>
       <div class="card-body ">
         <canvas id="chartEmail"></canvas>
       </div>
       <div class="card-footer ">
-        <div class="legend">
-          <i class="fa fa-circle text-primary"></i> Opened
-          <i class="fa fa-circle text-warning"></i> Read
-          <i class="fa fa-circle text-danger"></i> Deleted
-          <i class="fa fa-circle text-gray"></i> Unopened
-        </div>
         <hr>
         <div class="stats">
           <i class="fa fa-calendar"></i> Number of emails sent
         </div>
-        <pagination-controls ></pagination-controls>
       </div>
     </div>
   </div>
   </div>
-
-
-
-
       <div class="card-footer ">
         <hr>
         <div class="stats">
-          <i class="fa fa-history"></i> 
+          <i class="fa fa-history"></i>  <pagination-controls (pageChange)="p =$event" ></pagination-controls>
         </div>
+
       </div>
     </div>
   </div>

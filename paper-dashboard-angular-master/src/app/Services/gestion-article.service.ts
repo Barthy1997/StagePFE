@@ -14,4 +14,10 @@ export class GestionArticleService {
   {
     return this.http.get(this.api+'/AllArticle');
   }
+  getAllCatalogue()
+  {
+    return this.http.get(this.api+'/AllCatalogue');
+  }
+
+
 }
