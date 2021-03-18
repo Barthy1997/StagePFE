@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthentifiationService } from 'app/Services/authentifiation.service';
 
@@ -11,13 +11,23 @@ import { AuthentifiationService } from 'app/Services/authentifiation.service';
 export class ConnectionComponent implements OnInit {
 
   FormConnection:FormGroup;
-  constructor(private fb: FormBuilder, private AuthenService: AuthentifiationService,private route:Router) { }
+  connection;
+  constructor(private fb: FormBuilder, private AuthenService: AuthentifiationService,private route:Router) {
+    this.FormConnection=this.fb.group({
+      Username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+   }
 
   ngOnInit(): void {
   }
   login()
   {
-    this.route.navigate(['/dasboard'])
+    this.AuthenService.Login(this.FormConnection.value).subscribe(data=>{
+   this.connection=data;
+console.log(this.connection,"Bonjour");
+    })
+    
     
   }
 

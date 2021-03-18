@@ -14,6 +14,12 @@ import { GestionCompteComponent } from 'app/ModuleGestion/gestion-compte/gestion
 import { RegisterCommercialComponent } from 'app/Authentification/register-commercial/register-commercial.component';
 import { GestionCommercialComponent } from 'app/ModuleGestion/gestion-commercial/gestion-commercial.component';
 import { GestionArticleComponent } from 'app/ModuleGestion/gestion-article/gestion-article.component';
+import { ObjectifComponent } from 'app/ModuleGestion/objectif/objectif.component';
+import { RecouvrementComponent } from 'app/ModuleGestion/recouvrement/recouvrement.component';
+import { CamionnetteComponent } from 'app/ModuleGestion/camionnette/camionnette.component';
+import { TourneComponent } from 'app/ModuleGestion/tourne/tourne.component';
+import { GestionCamionnetteComponent } from 'app/ModuleGestion/gestion-camionnette/gestion-camionnette.component';
+import { GestionCommandeArticleComponent } from 'app/ModuleGestion/gestion-commande-article/gestion-commande-article.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',        component: DashboardComponent },
@@ -21,13 +27,19 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table',            component: TableComponent },
     { path: 'typography',       component: TypographyComponent },
     { path: 'icons',            component: IconsComponent },
-    { path: 'Catalogue',        component: GestionArticleComponent },
     { path: 'Gestion',          component: GestionComponent },
     { path: 'maps',             component: MapsComponent },
-    { path: 'inscripClient',    component: RegisterClientComponent },
-    { path: 'inscripCommercial',component: RegisterCommercialComponent },
+    { path: 'notifications',    component: NotificationsComponent },
+
+    { path: 'objectifs',        component: ObjectifComponent },
     { path: 'Compte',           component: GestionCompteComponent },
     { path: 'CompteCommercial', component: GestionCommercialComponent },
-    { path: 'notifications',    component: NotificationsComponent },
-    { path: 'upgrade',          component: UpgradeComponent }
+    { path: 'recouvrement',     component: RecouvrementComponent },
+    { path: 'camionnette',      component: GestionCamionnetteComponent },
+    { path: 'AjoutCamionnette', component: CamionnetteComponent },
+    { path: 'tourne',           component: TourneComponent },
+    { path: 'Catalogue',        component: GestionArticleComponent },
+    { path: 'inscripClient',    component: RegisterClientComponent },
+    { path: 'article',          component: GestionCommandeArticleComponent},
+    { path: 'inscripCommercial',component: RegisterCommercialComponent },
 ];

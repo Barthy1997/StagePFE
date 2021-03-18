@@ -47,8 +47,6 @@ Compte.route('/deleteOne/:id').delete(async(req,res)=>{
     try{
     const reponse =await sql.connect(config);
     const deleteUser =await sql.query('delete From UserClient Where id='+req.params.id+'');
-    const tar=true;
-    console.log("bonjjsssssssssssssssssssssssss"+true)
     res.json(tar)
 
     }catch(error)
@@ -62,8 +60,6 @@ Compte.route('/deleteOneCommercial/:id').delete(async(req,res)=>{
     try{
     const reponse =await sql.connect(config);
     const deleteUser =await sql.query('delete From UserCommercial Where id='+req.params.id+'');
-    const tar=true;
-    console.log("bonjjsssssssssssssssssssssssss"+true)
     res.json(tar)
     }
     catch(error)

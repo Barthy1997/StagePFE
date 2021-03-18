@@ -11,7 +11,7 @@ export class ListePipe implements PipeTransform {
     {
       return Article; 
     }
-    return Article.filter(Client=>Client.CL_No1==filter||Client.CL_No2==filter ||Client.CL_No3==filter);
+    return Article.filter(article=>article.CL_No1==filter||article.CL_No2==filter ||article.CL_No3==filter ||article.CL_No4==filter);
   }
 
 }

@@ -47,6 +47,10 @@ import { ObjectifComponent } from './ModuleGestion/objectif/objectif.component';
 import { RecouvrementComponent } from './ModuleGestion/recouvrement/recouvrement.component';
 import { GestionArticleComponent } from './ModuleGestion/gestion-article/gestion-article.component';
 import { CataloguePipe } from './Pipe/catalogue.pipe';
+import { ZoneComponent } from './ModuleGestion/zone/zone.component';
+import { GestionCamionnetteComponent } from './ModuleGestion/gestion-camionnette/gestion-camionnette.component';
+import { GestionCommandeArticleComponent } from './ModuleGestion/gestion-commande-article/gestion-commande-article.component';
+import { PanierComponent } from './ModuleGestion/panier/panier.component';
 
 
 @NgModule({
@@ -59,6 +63,7 @@ import { CataloguePipe } from './Pipe/catalogue.pipe';
     RegisterCommercialComponent,
     GestionCompteComponent,
     RecherchePipe,
+    CataloguePipe,
     ListePipe,
     GestionCommercialComponent,
     CamionnetteComponent,
@@ -66,7 +71,10 @@ import { CataloguePipe } from './Pipe/catalogue.pipe';
     ObjectifComponent,
     RecouvrementComponent,
     GestionArticleComponent,
-    CataloguePipe
+    ZoneComponent,
+    GestionCamionnetteComponent,
+    GestionCommandeArticleComponent,
+    PanierComponent
   ],
   imports: [
     BrowserAnimationsModule,

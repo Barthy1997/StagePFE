@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+       <div *ngFor='let item of listeCatalogues|catalogue:Envoyer'>
+            <button type="button" class="btn btn-lg btn-block btn-success" [value]='Envoyer'(click)='envoyer(item.CL_No,1)'>{{item.CL_Intitule}}</button>
+       </div>
+      <div>
+          <button type="button" class="btn btn-lg btn-block btn-success text-uppercase" (click)='Retour()'>Retour</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card card-user">
+
+      <div class="row">
+  <div class="col-md-12">
+    <div class="card card-plain">
+      <div class="card-header">
+        <h4 class="card-title"> Liste Des Produits</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Nom
+              </th>
+              <th>
+                Photo
+              </th>
+              <th>
+                 Unité
+              </th>
+              <th>
+                Prix Unité
+              </th>
+               <th>
+                Prix Gros
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor='let item of commande|liste:Envoyer|paginate:{itemsPerPage:12,currentPage:p};let i = index;'>
+                <td>
+                  {{item.AR_Design}}
+                </td>
+                <td>
+                  <img class='img' src="assets/{{item.nomPhoto}}">
+                </td>
+                <td>
+               <input type='text'(keyup)="QArticle($event,item.CO_No)">
+                </td>
+                <td *ngIf='Nombre'>
+                {{item.EC_Quantite*Quantite| number: '1.1'}}
+                </td>
+                <td>
+                 {{item.TC_Prix}}
+                </td>
+                <td class="text-right">
+          <button type="button"   class="btn btn-sm btn-success" (click)='commander()'><i class="fa fa-shopping-basket"></i></button>
+               </td>
+              </tr>                
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i><pagination-controls (pageChange)="p =$event" ></pagination-controls>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

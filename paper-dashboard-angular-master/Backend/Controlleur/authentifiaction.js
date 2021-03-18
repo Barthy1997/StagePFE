@@ -4,11 +4,9 @@ const config = require('../Configuration/Config');
 const sql = require('mssql');
 const brypt = require('bcryptjs')
 var jwt = require("jsonwebtoken");
-let jwt_secret = "hdhzfghzhgszghsbgshh5262626626JDHSG";
+let jwt_secret = "hdhzfghzhgszghsbgshh526262662jéjà@26JDHSG";
 let code;
 let token;
-
-
 
 AuthRoute.route('/inscriptionCommercial').post(async (req, res) => {
     try {
@@ -27,32 +25,35 @@ AuthRoute.route('/inscriptionCommercial').post(async (req, res) => {
 AuthRoute.route('/inscriptionClient').post(async(req, res) => {
     try {
         const reponse = await sql.connect(config);
-        const client = await sql.query("INSERT INTO UserClient VALUES('" + req.body.nom + "','"  + req.body.codeclient + "','" + req.body.codecommercial + "','" + req.body.adresse + "','" + req.body.Zone + "','" + req.body.Szone + "','" + req.body.jourvisite + "','" + req.body.Gps + "')");
+        let salt = brypt.genSaltSync(10)
+        let hash = brypt.hashSync(req.body.password, salt)
+        const client = await sql.query("INSERT INTO UserBase VALUES('" + req.body.nom + "','"  + req.body.codeclient + "','" + req.body.prenom + "','" + hash + "','" + req.body.Gps + "','"  + req.body.adresse + "')");
         res.json(client)
-        console.log(client)
     } catch {
         console.log('Erreur')
-
     }
-
 });
 
 
-AuthRoute.route('/login').post(async (req, res) => {
+AuthRoute.route('/login').post(async(req, res) => {
 
     try {
         const reponse = await sql.connect(config);
-        const request = await sql.query("SELECT password From UserClient where nom='" + req.body.Username + "'");
+        console.log(req.body)
+        const request = await sql.query("SELECT password From UserBase where nom='" +req.body.Username+ "'");
         for (var i = 0; i < request.rowsAffected; i++) {
-            code = brypt.compareSync(req.body.password, request.recordset[i].password);
-            if (code===true) {
-                code = true;
+            pwd=brypt.compareSync(req.body.password,request.recordset[i].password);
+            console.log(code)
+            if(pwd===true)
+            {
+                pwd=true;
             }
-            else {
-                code = false;
+            else{
+                code==false;
             }
+
         }
-        if (code===true) {
+        if (pwd===true) {
             const user = req.body.Username;
             token = await jwt.sign({
                 user
@@ -64,7 +65,7 @@ AuthRoute.route('/login').post(async (req, res) => {
         }
         else {
             res.json(err)
-            console.log('Erreurs', code)
+            console.log('Erreurs',code)
         }
 
     } catch (error) {

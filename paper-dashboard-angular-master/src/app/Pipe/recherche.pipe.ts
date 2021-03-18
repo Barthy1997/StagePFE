@@ -11,7 +11,7 @@ export class RecherchePipe implements PipeTransform {
     {
       return Client; 
     }
-    return Client.filter(Client=>Client.Login.toLowerCase().indexOf(recherche.toLowerCase())!==-1 || Client.Nom.toLowerCase().indexOf(recherche.toLowerCase())!==-1);
+    return Client.filter(Client=>Client.Login.toLowerCase().indexOf(recherche.toLowerCase())!==-1 || Client.Nom.toLowerCase().indexOf(recherche.toLowerCase())!==-1 ||Client.CO_NO==parseInt(recherche));
   }
 
 }

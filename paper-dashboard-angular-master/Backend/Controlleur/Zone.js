@@ -21,7 +21,7 @@ Compte.route('/deleteOne/:id').delete(async(req,res)=>{
     const reponse =await sql.connect(config);
     const deleteUser =await sql.query('delete From client Where id='+req.params.id+'');
     const tar=true;
-    console.log("bonjjsssssssssssssssssssssssss"+true)
+    console.log("bonjour"+true)
     res.json(tar)
 
 })

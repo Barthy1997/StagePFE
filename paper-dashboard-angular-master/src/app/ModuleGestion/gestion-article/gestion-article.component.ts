@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article } from 'app/Model/Article';
 import { Catalogue } from 'app/Model/Catalogue';
+import { ListParent } from 'app/Model/ListParent';
 import { GestionArticleService } from 'app/Services/gestion-article.service';
 
 @Component({
@@ -11,37 +13,59 @@ import { GestionArticleService } from 'app/Services/gestion-article.service';
 export class GestionArticleComponent implements OnInit {
 
   listeArticle;
-  Barthy:any;
   listeArticles:Article[];
-  P:number=1;
+  page:number=1;
   Envoyer:number;
-  famille;
+  listphoto;
   listeCatalogues;
-  somme:number=0;
+  listParent:ListParent[];
+  listenomParent=[];
+  index:number;
+  listeRetour=[];
   
-  
-constructor(private Article:GestionArticleService) { }
+constructor(private Article:GestionArticleService,private route:Router) { }
 
   ngOnInit(): void {
-    this.Article.getAllArticle().subscribe(data=>{
+    this.Article.getAllPhoto().subscribe(data=>{
       this.listeArticle=data;
-      this.listeArticle=this.listeArticle.articles;
+      this.listeArticle=this.listeArticle.catalogues;
+      });
+    
+ this.Article.getAllPhoto().subscribe(data=>{
+    this.listphoto=data;
+    this.listphoto=this.listphoto.catalogues;
     });
 
-
-    this.Article.getAllCatalogue().subscribe(data=>{
+  this.Article.getAllCatalogue().subscribe(data=>{
       this.listeCatalogues=data;
       this.listeCatalogues=this.listeCatalogues.catalogues;
-       console.log(this.listeCatalogues)
-    });
-    
+     });
+    this.Envoyer=0;
+   }
+   
+
+  envoyer(nom,elementCatalogue,Intitulecategorie)
+  {
+   this.Envoyer=nom; 
+   this.listeRetour.push(elementCatalogue)
+   this.listenomParent.push(Intitulecategorie)
+      
   }
 
-  envoyer(nom)
+  Retour()
   {
-   this.famille=nom;
-    console.log(this.somme)
-      
+    if(this.listeRetour.length<1)
+    {
+    this.Envoyer=0;
+    }
+    else{
+    this.listeRetour;
+    this.listenomParent.pop()
+    this.index=this.listeRetour[this.listeRetour.length-1];
+     this.Envoyer=this.index;
+     this.listeRetour.pop()
+    }
+   
   }
   
   

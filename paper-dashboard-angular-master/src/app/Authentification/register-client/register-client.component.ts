@@ -25,6 +25,7 @@ listeCamion:Camion[];
       jourvisite: ['', Validators.required],
       Zone: ['', Validators.required],
       Szone: ['', Validators.required],
+      password: ['', Validators.required],
     });
    }
 
